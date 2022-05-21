@@ -78,9 +78,8 @@ class Stack:
         3
         """
 
-        # FIXME
+        return len(self._list)
 
-        pass
 
     def empty(self):
         """Empty stack::
@@ -99,9 +98,8 @@ class Stack:
         0
         """
 
-        # FIXME
+        self._list = []
 
-        pass
 
     def is_empty(self):
         """Is stack empty?
@@ -119,9 +117,7 @@ class Stack:
         False
         """
 
-        # FIXME
-
-        pass
+        return not self._list
 
 
 if __name__ == "__main__":

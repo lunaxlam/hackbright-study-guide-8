@@ -32,6 +32,7 @@ class LinkedList:
 
         self.tail = new_node
 
+
     def remove_node_by_index(self, index):
         """Remove node with given index."""
 
@@ -44,10 +45,12 @@ class LinkedList:
             node = node.next
             i += 1
 
+
         if prev is None:
             self.head = node.next
         else:
             prev.next = node.next
+
 
     def find_node(self, data):
         """Is a matching node in the list?"""
@@ -61,6 +64,7 @@ class LinkedList:
             current = current.next
 
         return False
+
 
     def print_list(self):
         """Print all items in the list::
@@ -76,9 +80,12 @@ class LinkedList:
         fish
         """
 
-        # FIXME
+        current = self.head
+        
+        while current:
+            print(current.data)
+            current = current.next
 
-        pass
 
     def get_node_by_index(self, idx):
         """Return a node with the given index::
@@ -100,10 +107,14 @@ class LinkedList:
         Exception: List not long enough
         """
 
-        # FIXME
-
-        pass
-
+        current = self.head
+        
+        for i in range(idx):
+            if not current.next:
+                raise Exception("List not long enough")
+            current = current.next
+        return current
+        
 
 if __name__ == "__main__":
     import doctest

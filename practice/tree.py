@@ -2,7 +2,7 @@
 
 
 class Node:
-    """Node in a tree."""
+    """Node in a tree. Represents a member of a hierarchy, such as an employee within an org chart. Children of a node could be employees that the parent node, employee, supervises."""
 
     def __init__(self, data, children=None):
         children = children or []
@@ -31,7 +31,7 @@ class Node:
 
 
 class Tree:
-    """Tree."""
+    """Tree. Helpful to keep track of hierarchical structures, such as a company org chart."""
 
     def __init__(self, root):
         self.root = root
@@ -45,6 +45,8 @@ class Tree:
         """Return node object with this data, traversing the tree depth-first.
 
         Start at the root, and return None if not found.
+
+        Remember: depth-first is Stack structure, so LIFO (the last thing added is the first thing being examined).
         """
 
         to_visit = [self.root]
@@ -61,6 +63,8 @@ class Tree:
         """Return node object with this data, traversing the tree breadth-first.
 
         Start here (on this node), and return None if not found.
+
+        Remember: breadth-first is Queue structure, so FIFO (the first thing added is the first thing being examined).
 
         Let's make a tree where we have two "B" nodes, but where one is far down an
         earlier branch and the other is higher-up in an earlier branch. Since this is
@@ -91,8 +95,16 @@ class Tree:
 
         """
 
-        # FIXME
-        pass
+        to_visit = [self.root]
+
+        while to_visit:
+            # Set the node we are looking at to the node at index 0; the first node
+            node = to_visit.pop(0)
+
+            if node.data == data:
+                return node
+
+            to_visit.extend(node.children)
 
 
 if __name__ == "__main__":

@@ -6,35 +6,42 @@ to consider the length of time it takes for the algorithm to run as the algorith
 workload approaches infinity. What determines the **workload** of figuring out
 whether your box of animal crackers contains an elephant?
 
+Time complexity ("runtime") of an algorithm is the amount of time it takes for an algorithm to complete based on the size of the input (dataset) to the problem.
 
+Factors to consider when implementing an algorithm:
+- Size of the dataset
+- Whether or not the dataset is ordered
+- If the organization of the dataset contains any nested data structures
+
+In the example above, the **workload** is the size of the dataset (the total number of animal crackers in the box).
 
 2. Order the following runtimes in descending order of efficiency (that is,
 	fastest runtimes first, slowest last) as `n` approaches infinity:
 
-   - O(log n)
+   - O(1): "Constant Runtime" - The length of runtime is constant, regardless of size of the size of the dataset.
 
-   - O(n^2)
+   - O(log n): "Logarthmic Runtime" - Each time the computation must be performed, the amount of work required is cut in half.
+   
+   - O(n): "Linear Runtime" - The length of runtime linearly increases in correspondence to the size of the dataset.
 
-   - O(n log n)
+   - O(n * log n): "Linearthmic Runtime" - For every item in the dataset, we will perform a log n operation n times; O(n * log n).
 
-   - O(n)
+   - O(n^2): "Quadratic Runtime" - The runtime is directly porportial to the squared size of the input dataset (i.e. having to perform a computation with two iterations over the same dataset).
 
-   - O(2^n)
-
-   - O(1)
+   - O(2^n): "Exponential Runtime" - Extremely slow. Example - a recursive function that makes multiple calls. 
 
 
 In the file called `runtime.py`, there are 5 functions.
 
-1. What is the runtime for `string_compare`?
+1. What is the runtime for `string_compare`? O(n)
 
-2. What is the runtime for `has_exotic_animals`?
+2. What is the runtime for `has_exotic_animals`? O(n^2)
 
-3. What is the runtime for `sum_zero_1`?
+3. What is the runtime for `sum_zero_1`? O(n^2)
 
-4. What is the runtime for `sum_zero_2`?
+4. What is the runtime for `sum_zero_2`? O(n^2)
 
-5. What is the runtime for `sum_zero_3`?
+5. What is the runtime for `sum_zero_3`? O(n^2)
 
 
 Stacks and Queues
@@ -44,35 +51,44 @@ Stacks and Queues
 	structure?
 
   - The process of loading and unloading pallets onto a flatbed truck
+  Stack
 
   - Putting bottle caps on bottles of beer as they roll down an assembly line
+  Queue
 
 
 2. Describe two more situations where a queue would be an appropriate data
 	structure.
 
+  A waiting list, keeping track of customer orders, processing shipments.
+
 3. Describe two more situations where a stack would be an appropriate data
 	structure.
+
+  Eating a stack of Pringles, taking a sticky-note off a pad.
 
 
 Linked Lists
 ------------
 
-1. Given the linked list shown in the instructions, which are the nodes? What is
-the data for each node? Where is the head? Where is the tail? (Be as specific as
-possible --- exactly which parts of the diagram correspond to each part? Arrows?
-Boxes? Text?)
+1. Given the linked list shown in the instructions, which are the nodes? The nodes are the elements that contain a "data" attribute and "next" pointer attribute.
 
-2. What's the difference between doubly- and singly-linked lists?
+What is the data for each node? Apple node - "Apple"; Berry node - "Berry"; Cherry node- "Cherry"
 
-3. Why is it faster to append to a linked list if we keep track of the `tail`
-as an attribute?
+Where is the head? Apple node
+
+Where is the tail? (Be as specific as possible --- exactly which parts of the diagram correspond to each part? Arrows?
+Boxes? Text?) The tail would be the Cherry node since it is the last node in this linked list, but this linked list is not tracking the tail.
+
+2. What's the difference between doubly- and singly-linked lists? Doubly-linked lists allow more node relationships by granting nodes that have a pointer attribute to the preceding node, in addition to the next node.
+
+3. Why is it faster to append to a linked list if we keep track of the `tail` as an attribute? We always know where the tail is. If we do not keep track of the tail, we will need to traverse through the entire linked list to find the last node.
 
 Trees
 -----
 
-1. What would be the best data structure to use for keeping track of nodes to
-	visit during a Breadth First Search of a tree?
+1. What would be the best data structure to use for keeping track of nodes to visit during a Breadth First Search of a tree?
+Queue - FIFO
 
-2. What would be the best data structure to use for keeping track of nodes to
-	visit during a Depth First Search of a tree?
+2. What would be the best data structure to use for keeping track of nodes to visit during a Depth First Search of a tree?
+Stack - LIFO
