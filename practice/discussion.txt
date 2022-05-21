@@ -37,7 +37,7 @@ In the file called `runtime.py`, there are 5 functions.
 
 2. What is the runtime for `has_exotic_animals`? O(n^2)
 
-3. What is the runtime for `sum_zero_1`? O(n^2)
+3. What is the runtime for `sum_zero_1`? O(n)
 
 4. What is the runtime for `sum_zero_2`? O(n^2)
 
